@@ -16,6 +16,7 @@
 #include <net/if.h>
 #include <linux/if_ether.h>
 #unclude <linux/if_arp.h>
+#include <linux/if_ether.h>
 
 int main(int argc, char *argv[]) {
     // Create a raw socket
