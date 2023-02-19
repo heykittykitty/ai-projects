@@ -8,6 +8,7 @@
 #include <netinet/tcp.h>
 #include <netinet/udp.h>
  
+//Function to analyze packets
 void packet_analyzer(unsigned char* buffer, int size)
 {
     //Get the IP Header part of this packet
@@ -31,6 +32,7 @@ void packet_analyzer(unsigned char* buffer, int size)
     printf("Source IP        : %s\n",inet_ntoa(iph->saddr));
     printf("Destination IP   : %s\n",inet_ntoa(iph->daddr));
  
+    //If the packet is TCP
     if(iph->protocol == 6)
     {
         printf("\n**********************TCP Header*************************\n");
@@ -49,6 +51,7 @@ void packet_analyzer(unsigned char* buffer, int size)
         printf("Checksum       : %d\n",ntohs(tcph->check));
         printf("Urgent Pointer : %d\n",tcph->urg_ptr);
     }
+    //If the packet is UDP
     else if(iph->protocol == 17)
     {
         printf("\n**********************UDP Header*************************\n");
@@ -59,6 +62,7 @@ void packet_analyzer(unsigned char* buffer, int size)
     }
 }
 
+//Main function
 int main(int argc, char *argv[])
 {
     int sock_raw;
@@ -76,6 +80,7 @@ int main(int argc, char *argv[])
         return 1;
     }
  
+    //Loop to receive packets
     while(1)
     {
         //Receive a packet
@@ -90,6 +95,7 @@ int main(int argc, char *argv[])
         packet_analyzer(buffer , data_size);
     }
    
+    //Close the socket
     close(sock_raw);
     printf("Finished");
     return 0;
