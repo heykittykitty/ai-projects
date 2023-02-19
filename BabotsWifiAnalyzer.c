@@ -5,6 +5,10 @@
 // Function declarations
 void scan_networks();
 void retrieve_network_info(char *ssid, int *signal_strength, int *channel_usage);
+int scan_networks();
+void get_ssid(char* ssid);
+int get_signal_strength();
+int get_channel_usage();
 
 int main()
 {
@@ -39,7 +43,7 @@ void scan_networks()
     
     printf("Scanning for networks...\n");
     
-    // TODO: Write code to scan for available networks
+    // Scan for available networks
     num_networks = scan_networks();
     
     // Print out the available networks
@@ -53,7 +57,6 @@ void scan_networks()
 // Retrieves information about a network
 void retrieve_network_info(char *ssid, int *signal_strength, int *channel_usage)
 {
-    // TODO: Write code to retrieve information about the networks
     // Get the SSID of the network
     get_ssid(ssid);
     
@@ -62,4 +65,31 @@ void retrieve_network_info(char *ssid, int *signal_strength, int *channel_usage)
     
     // Get the channel usage of the network
     *channel_usage = get_channel_usage();
+}
+
+// Scans for available networks and returns the number of networks found
+int scan_networks()
+{
+    // TODO: Write code to scan for available networks
+    return 0; // placeholder
+}
+
+// Gets the SSID of a network
+void get_ssid(char* ssid)
+{
+    // TODO: Write code to get the SSID of a network
+}
+
+// Gets the signal strength of a network
+int get_signal_strength()
+{
+    // TODO: Write code to get the signal strength of a network
+    return 0; // placeholder
+}
+
+// Gets the channel usage of a network
+int get_channel_usage()
+{
+    // TODO: Write code to get the channel usage of a network
+    return 0; // placeholder
 }
