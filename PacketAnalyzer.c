@@ -14,10 +14,10 @@ void packet_analyzer(unsigned char* buffer, int size)
     struct iphdr *iph = (struct iphdr*)buffer;
    
     //Get the TCP Header part of this packet
-    struct tcphdr *tcph=(struct tcphdr*)(buffer + sizeof(struct ip));
+    struct tcphdr *tcph=(struct tcphdr*)(buffer + sizeof(struct iphdr));
    
     //Get the UDP Header part of this packet
-    struct udphdr *udph = (struct udphdr*)(buffer + sizeof(struct ip));
+    struct udphdr *udph = (struct udphdr*)(buffer + sizeof(struct iphdr));
  
     printf("\n\n***********************IP Header*************************\n");
     printf("IP Version        : %d\n",(unsigned int)iph->version);
